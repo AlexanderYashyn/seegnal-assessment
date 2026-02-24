@@ -1,72 +1,159 @@
+.body {
+    background: no-repeat center center fixed;
+    background-image: url(https://keycloak-clinical.seegnal.com/resources/2g5fz/login/keycloak.v2/img/keycloak-bg.png);
+    background-size: cover;
+    height: 100%;
+    background-attachment: fixed;
+    background-clip: border-box;
+    background-color: #26292d;
+    background-image: url(https://keycloak-clinical.seegnal.com/resources/2g5fz/login/keycloak.v2/img/keycloak-bg.png);
+    background-origin: padding-box;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #1b1e2e;
-  background-image:
-    linear-gradient(135deg, #111525 25%, transparent 25%),
-    linear-gradient(225deg, #111525 25%, transparent 25%),
-    linear-gradient(315deg, #111525 25%, transparent 25%),
-    linear-gradient(45deg,  #111525 25%, transparent 25%);
-  background-size: 56px 56px;
-  background-position: 0 0, 28px 0, 28px -28px, 0 28px;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color-scheme: dark;
+    padding-block-end: 24px;
+    padding-block-start: 24px;
+}
+
+.content {
+    box-sizing: border-box;
+    display: block;
+    max-width: 400px;
+    width: 400px;
+}
+
+.header {
+    background-image: url(https://keycloak-clinical.seegnal.com/resources/2g5fz/login/keycloak.v2/img/keycloak-logo-text.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    box-sizing: border-box;
+    display: block;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.headerWrapper {
+    box-sizing: border-box;
+    display: block;
+    height: 63px;
+    width: 500px;
+}
+
+.logo {
+    box-sizing: border-box;
+    display: block;
+    height: 43px;
+    margin-bottom: 0px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 0px;
+    width: 80%;
 }
 
 .card {
-  background: #212535;
-  padding: 40px 48px;
-  border-radius: 4px;
+  background-color: #26292d;
+  font-family: RedHatText, helvetica, arial, sans-serif;
+  padding: 30px 40px;
   width: 100%;
-  max-width: 440px;
+  max-width: 500px;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  display: block;
 }
 
-.logoArea {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 28px;
-}
-
-.logoText {
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: #c5cce0;
+.mainHeader {
+    align-items: center;
+    box-sizing: border-box;
+    display: grid;
+    font-weight: 400;
+    line-height: 24px;
+    color: #FFFFFF;
 }
 
 .title {
-  font-size: 20px;
-  font-weight: 400;
-  color: #ffffff;
-  margin-bottom: 24px;
+    box-sizing:border-box;
+    display:block;
+    margin-bottom:10px;
+    margin-left:0px;
+    margin-right:0px;
+    margin-top:0px;
+    padding-bottom:0px;
+    padding-left:0px;
+    padding-right:0px;
+    padding-top:0px;
+    font-family: RedHatDisplay, helvetica, arial, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 36.4px;
+    word-break: break-word;
+    color-scheme: dark;
 }
 
 .field { margin-bottom: 16px; }
 
 .field label {
   display: block;
-  color: #9ba3b8;
-  font-size: 13px;
-  margin-bottom: 6px;
+  color: #FFFFFF;
+  font-size: 12px;
+  margin-bottom: 2px;
 }
 
 .field input {
   width: 100%;
-  padding: 10px 12px;
+  padding: 2px 6px;
   border: 1px solid #3a3f55;
   border-radius: 3px;
-  background: #1c2030;
+  background-color: rgba(70, 90, 126, 0.4);
   color: #ffffff;
-  font-size: 14px;
+  font-size: 12px;
   outline: none;
+  height: 28px;;
   transition: border-color 0.15s;
 }
 
-.field input:focus { border-color: #4a90d9; }
+.field input:focus { border-color: #ffffff; }
 .inputError        { border-color: #e53935 !important; }
+
+.passwordWrapper {
+  position: relative;
+}
+
+.passwordWrapper input {
+  padding-right: 42px;
+}
+
+.eyeToggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #9ba3b8;
+  display: flex;
+  align-items: center;
+}
+
+.eyeToggle:hover { color: #ffffff; }
+
+.eyeToggle svg {
+  width: 18px;
+  height: 18px;
+}
 
 .errorText {
   display: block;
@@ -77,9 +164,10 @@
 
 .forgotPassword {
   display: block;
-  color: #4a90d9;
-  font-size: 13px;
-  margin-bottom: 20px;
+  color: #1fa7f8;
+  font-size: 11px;
+  margin-bottom: 40px;
+  margin-top: 4px;
 }
 .forgotPassword:hover { text-decoration: underline; }
 
@@ -94,13 +182,15 @@
 }
 
 .submitButton {
+  font-family: RedHatDisplay, helvetica, arial, sans-serif;
+  box-sizing: border-box;
   width: 100%;
-  padding: 12px;
-  background: #4a90d9;
+  padding: 6px 16px;
+  background: #0066CC;
   color: #ffffff;
   border: none;
   border-radius: 3px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
   transition: background 0.15s;
 }
