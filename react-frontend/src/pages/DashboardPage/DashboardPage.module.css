@@ -1,0 +1,61 @@
+.page { display: flex; flex-direction: column; min-height: 100vh; }
+
+.body { display: flex; flex: 1; }
+
+.main {
+  flex: 1;
+  padding: 24px 28px;
+  background: #ffffff;
+  overflow: auto;
+}
+
+.pageTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1d2b4f;
+  margin-bottom: 14px;
+}
+
+.filterRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.filterBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #6b7591;
+  padding: 4px 0;
+}
+.filterBtnActive { color: #1d2b4f; font-weight: 500; }
+
+.filterDot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.filterCount { font-size: 12px; color: #9ba3b8; }
+
+.contentRow { display: flex; gap: 32px; align-items: flex-start; }
+
+.alertsColumn { flex-shrink: 0; width: 200px; }
+
+.loadingWrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e0e4ef;
+  border-top-color: #4a90d9;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

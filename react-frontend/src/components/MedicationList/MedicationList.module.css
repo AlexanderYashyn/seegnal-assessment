@@ -1,0 +1,49 @@
+.panel { flex: 1; min-width: 0; }
+
+.panelHeader { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+
+.title { font-size: 16px; font-weight: 600; color: #1d2b4f; }
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  color: #4a90d9;
+  font-size: 14px;
+  padding: 0;
+}
+.addBtn:hover { color: #2266aa; }
+.plusIcon { font-size: 17px; }
+
+.list { list-style: decimal inside; display: flex; flex-direction: column; }
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e8eaf0;
+  min-height: 42px;
+}
+
+.drugName { color: #2d3a5a; font-size: 14px; }
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: fadeIn 0.1s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.removeBtn {
+  background: none;
+  border: 1px solid #e0e4ef;
+  color: #6b7591;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+.removeBtn:hover { background: #fff0f0; border-color: #e53935; color: #e53935; }
