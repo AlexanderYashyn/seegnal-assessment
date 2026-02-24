@@ -21,8 +21,7 @@
     align-items: center;
     justify-content: center;
     color-scheme: dark;
-    padding-block-end: 0px;
-    padding-block-start: 0px;
+    box-sizing: border-box;
 }
 
 .content {
@@ -64,12 +63,13 @@
 
 .card {
   background-color: #26292d;
-  font-family: RedHatText, helvetica, arial, sans-serif;
+  font-family: 'Red Hat Text', helvetica, arial, sans-serif;
   width: 100%;
   max-width: 500px;
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.7);
   box-sizing: border-box;
   display: block;
+  margin-bottom: 10px;
 }
 
 .mainHeader {
@@ -85,7 +85,7 @@
 .title {
     box-sizing:border-box;
     display:block;
-    margin-bottom:10px;
+    margin-bottom:0px;
     margin-left:0px;
     margin-right:0px;
     margin-top:0px;
@@ -93,13 +93,13 @@
     padding-left:0px;
     padding-right:0px;
     padding-top:0px;
-    font-family: RedHatDisplay, helvetica, arial, sans-serif;
+    font-family: 'Red Hat Display', helvetica, arial, sans-serif;
     font-size: 28px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 36.4px;
     word-break: break-word;
     color-scheme: dark;
-    width: 70%;
+    width: 65%;
 }
 
 .mainBody {
@@ -113,20 +113,19 @@
   color: #FFFFFF;
   font-size: 14px;
   margin-bottom: 2px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .field input {
   width: 100%;
   padding: 6px 8px;
   border: 1px solid #3a3f55;
-  background-color: rgba(70, 90, 126, 0.4);
-  color: #ffffff;
   font-size: 16px;
   line-height: 24px;
   outline: none;
   height: 36px;
-  transition: border-color 0.15s;
+  color: rgb(224, 224, 224);
+  transition: border-color 0.05s;
 }
 
 .field input:focus { border-color: #ffffff; }
@@ -193,7 +192,7 @@
 }
 
 .submitButton {
-  font-family: RedHatDisplay, helvetica, arial, sans-serif;
+  font-family: 'Red Hat Display', helvetica, arial, sans-serif;
   box-sizing: border-box;
   width: 100%;
   padding: 6px 16px;
