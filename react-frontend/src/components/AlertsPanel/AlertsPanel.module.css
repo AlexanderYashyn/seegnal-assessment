@@ -2,12 +2,24 @@
 .column {
   position: absolute;
   inset: 0;
-  background: #d4d7e0;
+  background: rgb(229, 227, 228);
   border-radius: 14px;
   overflow: visible; /* chips extend beyond column sides */
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 130px;
+}
+
+.noAlertsColumn {
+  position: absolute;
+  inset: 0;
+  background: none;
+  border-radius: 14px;
+  overflow: visible;
+  display: flex;
 }
 
 /* ── Header – vertically stacked, centered ── */
@@ -31,8 +43,8 @@
 
 /* Severity label – centered, two lines */
 .severityLabel {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 500;
   color: #2d3a5a;
   text-align: center;
   line-height: 1.35;
@@ -41,7 +53,7 @@
 
 /* ⓘ icon */
 .infoIcon {
-  font-size: 18px;
+  font-size: 16px;
   color: #8a8fa8;
   line-height: 1;
 }
@@ -50,19 +62,19 @@
 .bypassLabel {
   font-size: 12px;
   font-weight: 700;
-  color: #2d3a5a;
+  color: #454545;
   text-align: center;
-  margin-top: 4px;
+  margin-top: 0px;
 }
 
 /* Toggle switch */
-.toggle { position: relative; display: inline-block; width: 44px; height: 22px; cursor: pointer; }
+.toggle { margin-top: -10px; position: relative; display: inline-block; width: 64px; height: 22px; cursor: pointer; scale: 0.5; }
 .toggle input { opacity: 0; width: 0; height: 0; }
 
 .slider {
   position: absolute;
   inset: 0;
-  background: #3d4464;
+  background: #454545;
   border-radius: 22px;
   transition: background 0.2s;
 }
@@ -78,7 +90,7 @@
   transition: transform 0.2s;
 }
 .toggle input:checked + .slider           { background: #4a90d9; }
-.toggle input:checked + .slider::before  { transform: translateX(22px); }
+.toggle input:checked + .slider::before  { transform: translateX(40px); }
 
 /* ── Drug chips – empty white boxes, absolutely positioned ── */
 /* right: 0 aligns flush with the column's right edge (= line end at 10px page margin) */
@@ -86,10 +98,12 @@
 .chip {
   position: absolute;
   left: -10px;
-  right: 0;
-  height: 30px;
+  right: 0px;
+  height: 22px;
   background: #ffffff;
-  border-radius: 6px;
+  border-radius: 20px;
+  border-color: #000000;
+  border-width: 1px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.14);
 }
 
@@ -103,4 +117,4 @@
   gap: 12px;
   padding: 24px 8px;
 }
-.noAlertsText { font-size: 13px; font-weight: 700; color: #00bcd4; letter-spacing: 1px; }
+.noAlertsText { font-size: 26px; font-weight: 700; color: #000000; letter-spacing: 1px; }

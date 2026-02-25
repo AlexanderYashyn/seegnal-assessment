@@ -6,8 +6,8 @@ import styles from './AlertsPanel.module.css';
 
 // Distance from the top of .main's box to the first medication list item.
 // Accounts for: main padding-top (64) + pageTitle+margin (~40) + filterRow+margin (~47) + medListHeader (~40)
-const CHIP_TOP_BASE = 197;
-const ITEM_HEIGHT = 42; // .item min-height in MedicationList
+const CHIP_TOP_BASE = 177;
+const ITEM_HEIGHT = 31; // .item min-height in MedicationList
 
 interface Props {
   alerts: Alert[];
@@ -19,7 +19,7 @@ export function AlertsPanel({ alerts, medications }: Props) {
 
   if (alerts.length === 0) {
     return (
-      <div className={styles.column}>
+      <div className={styles.noAlertsColumn}>
         <NoAlerts />
       </div>
     );
@@ -43,7 +43,7 @@ export function AlertsPanel({ alerts, medications }: Props) {
         </label>
       </div>
 
-      {medications.map((drug, idx) => {
+      {medications.sort((a,b) => alertedNames.has(a.name) && !alertedNames.has(b.name) ? -1 : alertedNames.has(b.name) && !alertedNames.has(a.name) ? 1 : 0).map((drug, idx) => {
         if (!alertedNames.has(drug.name)) return null;
         const chipTop = CHIP_TOP_BASE + idx * ITEM_HEIGHT + Math.round((ITEM_HEIGHT - 30) / 2);
         return <div key={drug.id} className={styles.chip} style={{ top: chipTop }} />;

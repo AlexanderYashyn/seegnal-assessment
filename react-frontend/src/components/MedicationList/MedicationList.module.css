@@ -3,7 +3,12 @@
 
 .panelHeader { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
 
-.title { font-size: 16px; font-weight: 600; color: #1d2b4f; }
+.title {
+    font-size: 18px; 
+    line-height: 18px;
+    color: rgb(33, 37, 41); 
+    font-weight: 600;
+}
 
 .addBtn {
   display: flex;
@@ -22,17 +27,18 @@
 }
 
 /* Numbered list – markers handled by explicit .number spans */
-.list { list-style: none; display: flex; flex-direction: column; }
+.list { list-style: none; display: flex; flex-direction: column; margin-left: 30px; margin-top: 10px; }
 
 .item {
   display: flex;
   align-items: center;
-  padding: 10px 0;
-  min-height: 42px;
+  padding: 0px 0;
+  min-height: 31px;
+  font-weight: 600;
 }
 
 .number {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #2d3a5a;
   flex-shrink: 0;
@@ -40,10 +46,9 @@
 }
 
 .drugName {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #2d3a5a;
-  flex-shrink: 0;
 }
 
 /* Line extends to the right; padding-right reserves space for the alert column (200px) + gap (16px) */
@@ -52,13 +57,13 @@
   display: flex;
   align-items: center;
   margin-left: 10px;
-  padding-right: 216px;
 }
 
 .line {
   flex: 1;
   height: 1px;
-  background: #e8eaf0;
+  background: #000000;
+  opacity: 0.25;
 }
 
 /* Trash bin icon button – appears on hover, sits at the end of the line */
