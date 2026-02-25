@@ -14,8 +14,8 @@ export function MedicationList({ medications, allDrugs, onAdd, onRemove }: Props
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
-  const handleAdd = (drug: Drug) => {
-    onAdd(drug);
+  const handleConfirm = (drugs: Drug[]) => {
+    drugs.forEach((drug) => onAdd(drug));
     setIsModalOpen(false);
   };
 
@@ -57,7 +57,7 @@ export function MedicationList({ medications, allDrugs, onAdd, onRemove }: Props
         <AddDrugModal
           allDrugs={allDrugs}
           currentMedications={medications}
-          onSelect={handleAdd}
+          onConfirm={handleConfirm}
           onClose={() => setIsModalOpen(false)}
         />
       )}

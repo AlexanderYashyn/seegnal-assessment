@@ -1,67 +1,185 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.45);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 48px;
   z-index: 500;
 }
 
 .modal {
   background: #ffffff;
   border-radius: 6px;
-  width: 480px;
-  max-width: 94vw;
-  max-height: 80vh;
+  width: 90vw;
+  max-width: 1100px;
+  max-height: 85vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .closeBtn {
   position: absolute;
-  top: 10px; right: 14px;
+  top: 12px; right: 16px;
   background: none;
   border: none;
   font-size: 24px;
   color: #6b7591;
   line-height: 1;
   padding: 0;
-  z-index: 1;
+  z-index: 10;
+  cursor: pointer;
 }
 .closeBtn:hover { color: #1d2b4f; }
 
+/* Search header area */
+.searchArea {
+  background: #f5f6fa;
+  border-radius: 6px 6px 0 0;
+  padding: 28px 48px 20px;
+  position: relative;
+}
+
+.searchLabel {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: #9ba3b8;
+  margin-bottom: 10px;
+}
+
 .searchInput {
   width: 100%;
-  padding: 18px 44px 18px 20px;
+  padding: 0 0 10px;
   border: none;
-  border-bottom: 1px solid #e0e4ef;
+  border-bottom: 1px solid #d0d4e0;
+  background: transparent;
   font-size: 15px;
-  outline: none;
   color: #1d2b4f;
+  outline: none;
 }
-.searchInput::placeholder { color: #9ba3b8; }
+.searchInput:focus { border-bottom-color: #1c2275; }
 
-.resultList { list-style: none; overflow-y: auto; flex: 1; }
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 48px;
+  min-width: 340px;
+  background: #ffffff;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  z-index: 20;
+  overflow: hidden;
+}
 
-.resultItem {
+.dropdownItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 13px 20px;
+  padding: 13px 16px;
   background: none;
   border: none;
   border-bottom: 1px solid #f0f2f5;
   text-align: left;
   font-size: 14px;
   color: #2d3a5a;
+  cursor: pointer;
   transition: background 0.1s;
 }
-.resultItem:hover { background: #f5f7fb; }
+.dropdownItem:last-child { border-bottom: none; }
+.dropdownItem:hover { background: #f5f7fb; }
 
-.arrow   { color: #9ba3b8; font-size: 18px; }
-.noResults { padding: 24px 20px; color: #9ba3b8; font-size: 14px; }
+.arrow { color: #9ba3b8; font-size: 16px; }
+
+/* Body */
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 48px;
+  overflow-y: auto;
+}
+
+.addedSection { margin-bottom: 24px; }
+
+.addedTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1d2b4f;
+  margin-bottom: 12px;
+}
+
+.addedList { list-style: none; }
+
+.addedItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: #f5f6fa;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.addedName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1d2b4f;
+}
+
+.addedActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.dosingBtn {
+  background: none;
+  border: none;
+  color: #1c2275;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+.dosingBtn:hover { text-decoration: underline; }
+
+.separator { color: #c0c4d0; }
+
+.removeBtn {
+  background: none;
+  border: none;
+  color: #1c2275;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+.removeBtn:hover { text-decoration: underline; }
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.confirmBtn {
+  background: #1c2275;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 6px 26px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.confirmBtn:hover:not(:disabled) { background: #2a3299; }
+.confirmBtn:disabled { opacity: 0.4; cursor: not-allowed; }
