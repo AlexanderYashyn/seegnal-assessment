@@ -81,11 +81,12 @@
 .toggle input:checked + .slider::before  { transform: translateX(22px); }
 
 /* ── Drug chips – empty white boxes, absolutely positioned ── */
-/* left/right are negative to extend beyond the column's sides */
+/* right: 0 aligns flush with the column's right edge (= line end at 10px page margin) */
+/* left: -10px extends slightly into the line area for visual overlap */
 .chip {
   position: absolute;
-  left: -14px;
-  right: -14px;
+  left: -10px;
+  right: 0;
   height: 30px;
   background: #ffffff;
   border-radius: 6px;

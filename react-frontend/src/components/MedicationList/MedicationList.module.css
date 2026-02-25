@@ -1,9 +1,5 @@
-/*
-  Panel max-width keeps the trash icon ~20px to the left of the alert panel's chip edge.
-  Formula: 50vw - sidebar/2(70) - main-padding(42) - half-column(80) - chip-extension(14) - gap(20)
-         = 50vw - 226px
-*/
-.panel { flex: 1; min-width: 0; max-width: calc(50vw - 226px); }
+/* Panel fills available space; lineArea padding-right reserves room for the alert column */
+.panel { flex: 1; min-width: 0; }
 
 .panelHeader { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
 
@@ -50,12 +46,13 @@
   flex-shrink: 0;
 }
 
-/* Line extends from after the drug name to the right edge of the panel */
+/* Line extends to the right; padding-right reserves space for the alert column (200px) + gap (16px) */
 .lineArea {
   flex: 1;
   display: flex;
   align-items: center;
   margin-left: 10px;
+  padding-right: 216px;
 }
 
 .line {

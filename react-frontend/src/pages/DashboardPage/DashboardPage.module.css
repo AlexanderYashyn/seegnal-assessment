@@ -4,7 +4,7 @@
 
 .main {
   flex: 1;
-  padding: 64px 42px;
+  padding: 64px 10px 64px 42px;
   background: #ffffff;
   overflow: auto;
   position: relative; /* anchors the absolutely-positioned alertsColumn */
