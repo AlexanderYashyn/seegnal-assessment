@@ -5,12 +5,13 @@ import Database from 'better-sqlite3';
 interface User {
     id: number;
     email: string;
+    name: string;
     password_hash: string;
 }
 
 export interface LoginResult {
     token: string;
-    user: { email: string };
+    user: { email: string; name: string };
 }
 
 export class AuthService {
@@ -18,8 +19,8 @@ export class AuthService {
 
     login(email: string, password: string): LoginResult | null {
         const user = this.db
-            .prepare('SELECT id, email, password_hash FROM users WHERE email = ?')
-            .get(email)  as User | undefined;
+            .prepare('SELECT id, email, name, password_hash FROM users WHERE email = ?')
+            .get(email) as User | undefined;
 
         if (!user) {
             return null;
@@ -38,6 +39,6 @@ export class AuthService {
             secret,
             { expiresIn });
 
-        return { token, user: { email: user.email } };
+        return { token, user: { email: user.email, name: user.name } };
     }
 }

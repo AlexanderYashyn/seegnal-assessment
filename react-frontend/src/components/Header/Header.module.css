@@ -22,6 +22,8 @@
 .feedback { display: flex; align-items: center; gap: 6px; color: #ffffff; font-size: 13px; }
 .feedback:hover { opacity: 0.8; }
 
+.userName { font-size: 13px; color: #FFFFFF; font-weight: 600; }
+
 .logoutBtn { background: none; border: none; color: #FFFFFF; font-size: 13px; padding: 0; }
 .logoutBtn:hover { color: #ffffff; }
 

@@ -8,6 +8,7 @@ export function initDbSchema(): void {
         id            INTEGER PRIMARY KEY AUTOINCREMENT,
         email         TEXT NOT NULL UNIQUE,
         password_hash TEXT NOT NULL,
+        name          TEXT NOT NULL DEFAULT '',
         created_at    TEXT DEFAULT (datetime('now'))
         );
 
@@ -30,6 +31,13 @@ export function initDbSchema(): void {
         CREATE INDEX IF NOT EXISTS idx_interactions_pair     ON interactions(drug1_id, drug2_id);
         CREATE INDEX IF NOT EXISTS idx_interactions_pair_rev ON interactions(drug2_id, drug1_id);
     `);
+
+    // Migration: add name column to existing databases
+    try {
+        db.exec(`ALTER TABLE users ADD COLUMN name TEXT NOT NULL DEFAULT ''`);
+    } catch {
+        // Column already exists — safe to ignore
+    }
 
     console.log('Database schema initialized');
 }

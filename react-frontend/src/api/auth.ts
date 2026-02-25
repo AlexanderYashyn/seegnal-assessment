@@ -2,7 +2,7 @@ import client from './client';
 
 export interface LoginResponse {
     token: string;
-    user: { email: string };
+    user: { email: string; name: string };
 }
 
 export async function login(email: string, password: string): Promise<LoginResponse> {

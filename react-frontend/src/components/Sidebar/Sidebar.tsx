@@ -48,8 +48,10 @@ function SidebarItem({ icon, label, sublabel, badge, active }: SidebarItemProps)
         {icon}
         {badge !== undefined && <span className={styles.badge}>{badge}</span>}
       </div>
-      <span className={styles.label}>{label}</span>
-      {sublabel && <span className={styles.sublabel}>{sublabel}</span>}
+      <div className={styles.labelBox}>
+        <span className={styles.label}>{label}</span>
+        {sublabel && <span className={styles.sublabel}>{sublabel}</span>}
+      </div>
     </button>
   );
 }
