@@ -74,9 +74,11 @@ export function DashboardPage() {
               onAdd={handleAddDrug}
               onRemove={handleRemoveDrug}
             />
-            <div className={styles.alertsColumn}>
-              <AlertsPanel alerts={alerts} />
-            </div>
+          </div>
+
+          {/* AlertsPanel is positioned absolute relative to .main so it can span full height and be centered */}
+          <div className={styles.alertsColumn}>
+            <AlertsPanel alerts={alerts} medications={medications} />
           </div>
         </main>
       </div>

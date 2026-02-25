@@ -7,6 +7,7 @@
   padding: 64px 42px;
   background: #ffffff;
   overflow: auto;
+  position: relative; /* anchors the absolutely-positioned alertsColumn */
 }
 
 .pageTitle {
@@ -39,9 +40,19 @@
 .filterDot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 .filterCount { font-size: 12px; color: #9ba3b8; }
 
-.contentRow { display: flex; gap: 32px; align-items: flex-start; }
+.contentRow { display: flex; align-items: flex-start; }
 
-.alertsColumn { flex-shrink: 0; width: 200px; }
+/* Centered overlay column – positioned relative to .main */
+.alertsColumn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  pointer-events: none; /* let clicks pass through where there's no interactive element */
+}
+.alertsColumn > * { pointer-events: auto; }
 
 .loadingWrapper {
   min-height: 100vh;
