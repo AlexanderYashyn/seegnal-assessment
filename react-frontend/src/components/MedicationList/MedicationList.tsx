@@ -10,6 +10,18 @@ interface Props {
   onRemove: (drugId: number) => void;
 }
 
+function TrashIcon() {
+  return (
+    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="3 6 5 6 21 6" />
+      <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+      <path d="M10 11v6" />
+      <path d="M14 11v6" />
+      <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+    </svg>
+  );
+}
+
 export function MedicationList({ medications, allDrugs, onAdd, onRemove }: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hoveredId, setHoveredId] = useState<number | null>(null);
@@ -34,21 +46,27 @@ export function MedicationList({ medications, allDrugs, onAdd, onRemove }: Props
       </div>
 
       <ol className={styles.list}>
-        {medications.map((drug) => (
+        {medications.map((drug, idx) => (
           <li
             key={drug.id}
             className={styles.item}
             onMouseEnter={() => setHoveredId(drug.id)}
             onMouseLeave={() => setHoveredId(null)}
           >
+            <span className={styles.number}>{idx + 1}.</span>
             <span className={styles.drugName}>{drug.name}</span>
-            {hoveredId === drug.id && (
-              <div className={styles.actions}>
-                <button className={styles.removeBtn} onClick={() => onRemove(drug.id)}>
-                  Remove
+            <div className={styles.lineArea}>
+              <div className={styles.line} />
+              {hoveredId === drug.id && (
+                <button
+                  className={styles.removeBtn}
+                  onClick={() => onRemove(drug.id)}
+                  title="Remove"
+                >
+                  <TrashIcon />
                 </button>
-              </div>
-            )}
+              )}
+            </div>
           </li>
         ))}
       </ol>
