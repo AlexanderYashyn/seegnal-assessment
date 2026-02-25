@@ -58,8 +58,8 @@ export function Sidebar() {
   return (
     <nav className={styles.sidebar}>
       <SidebarItem icon={<HomeIcon />}    label="Home"            active />
-      <SidebarItem icon={<PatientIcon />} label="Patient factors" sublabel="Influencing" badge={4} />
-      <SidebarItem icon={<DietIcon />}    label="Diet to consider" badge={1} />
+      <SidebarItem icon={<PatientIcon />} label="Patient factors" sublabel="Influencing" badge={0} />
+      <SidebarItem icon={<DietIcon />}    label="Diet to consider" badge={0} />
       <div className={styles.more}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" role="img">
           <circle fill="none" stroke="#1c2275" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.83" cx="9.72" cy="20" r="2.24"/>

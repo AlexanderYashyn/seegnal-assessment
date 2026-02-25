@@ -22,20 +22,13 @@ export function Header() {
             <path fill="#f4eee8" d="M606.85,458.39A59.19,59.19,0,1,0,644.76,563v7.25h0a37.91,37.91,0,0,1-74.71,9.12H548.36a59.19,59.19,0,0,0,117.58-5.73V514.2A59.19,59.19,0,0,0,606.85,458.39Zm0,97.1a37.91,37.91,0,1,1,37.91-37.91A37.91,37.91,0,0,1,606.85,555.49Z"/>
           </svg>
         </div>
-      </div>
-
-      <div className={styles.center}>
         <span className={styles.expertLabel}>Expert view</span>
-        <label className={styles.toggleSwitch}>
-          <input type="checkbox" defaultChecked readOnly />
-          <span className={styles.slider} />
-        </label>
-        <span className={styles.onLabel}>On</span>
       </div>
 
       <div className={styles.right}>
-        <a href="#" className={styles.feedback} aria-label="Feedback">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" height="20" role="img">
+        <a href="#" className={styles.feedback}>
+          Feedback
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" height="16" role="img">
             <path d="M19 9.062s-5.188-.333-7 1.938c2-4.896 7-5.938 7-5.938v-2l5 4-5 4.019v-2.019zm-18.974 14.938h23.947l-11.973-11.607-11.974 11.607zm1.673-14l10.291-7.488 3.053 2.218c.712-.459 1.391-.805 1.953-1.054l-5.006-3.637-11.99 8.725v12.476l7.352-7.127-5.653-4.113zm15.753 4.892l6.548 6.348v-11.612l-6.548 5.264z"/>
           </svg>
         </a>

@@ -1,62 +1,55 @@
 .sidebar {
-  width: 130px;
-  background: #f5f6fa;
+  width: 140px;
+  background: #ffffff;
   border-right: 1px solid #e0e4ef;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px 0;
   gap: 8px;
   flex-shrink: 0;
   align-self: stretch;
+  box-shadow: 2px 2px 2px #1d2b4f;
 }
-
 
 .item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 104px;
-  padding: 12px 8px 10px;
+  width: 100%;
+  padding: 30px 8px;
   border: none;
-  background: #eaebf5;
-  border-radius: 6px;
+  background: transparent;
+  border-radius: 0;
   color: #4a5280;
   gap: 6px;
   transition: background 0.15s;
   position: relative;
   cursor: pointer;
 }
-.item:hover { background: #dfe0f0; }
+.item:hover { background: #f0f1f9; }
 
 .active {
   color: #1d2b4f;
-  background: #eaebf5;
-}
-.active::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 8px; bottom: 8px;
-  width: 3px;
-  background: #1d2b4f;
-  border-radius: 0 3px 3px 0;
+  background: #e8eaf5;
 }
 
-.iconWrapper { position: relative; display: flex; align-items: center; justify-content: center; }
+.iconWrapper { scale:1.8; position: relative; display: flex; align-items: center; justify-content: center; }
 
 .badge {
   position: absolute;
-  top: -4px; right: -10px;
+  top: 42px; right: -15px;
   background: #3d4464;
   color: #fff;
   border-radius: 50%;
   width: 17px; height: 17px;
   font-size: 10px;
+  font-weight: 700;
   display: flex; align-items: center; justify-content: center;
+  scale: 0.5;
 }
 
-.label    { font-size: 11px; text-align: center; line-height: 1.3; font-weight: 600; }
-.sublabel { font-size: 10px; color: #9ba3b8; font-weight: 400; }
+.label    { font-size: 12px; text-align: center; line-height: 1.3; font-weight: 800; }
+.sublabel { font-size: 12px; font-weight: 400; text-align: start; }
 
 .more {
   margin-top: auto;
