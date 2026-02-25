@@ -10,12 +10,14 @@
   gap: 5px;
   background: none;
   border: none;
-  color: #4a90d9;
-  font-size: 14px;
+  color: #1c2275;
+  font-size: 13px;
+  line-height: 13px;
+  font-weight: 400;
   padding: 0;
+  font-family: Rubik, sans-serif;
+  margin-left: 50px;
 }
-.addBtn:hover { color: #2266aa; }
-.plusIcon { font-size: 17px; }
 
 .list { list-style: decimal inside; display: flex; flex-direction: column; }
 

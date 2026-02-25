@@ -24,7 +24,11 @@ export function MedicationList({ medications, allDrugs, onAdd, onRemove }: Props
       <div className={styles.panelHeader}>
         <h2 className={styles.title}>Medication list</h2>
         <button className={styles.addBtn} onClick={() => setIsModalOpen(true)}>
-          <span className={styles.plusIcon}>⊕</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="28" height="28">
+            <path fill="#1c2275" d="M15,2A13,13,0,1,1,2,15,13,13,0,0,1,15,2m0-2A15,15,0,1,0,30,15,15,15,0,0,0,15,0Z"/>
+            <line fill="none" stroke="#1c2275" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="15" y1="8.46" x2="15" y2="21.54"/>
+            <line fill="none" stroke="#1c2275" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="21.54" y1="15" x2="8.46" y2="15"/>
+          </svg>
           Add medication
         </button>
       </div>
