@@ -13,7 +13,7 @@ client.interceptors.request.use((config) => {
 client.interceptors.response.use(
     (response) => response,
     (error) => {
-        if (error.response && error.response.status === 401) {
+        if (error.response && error.response.status === 401 && !error.config?.url?.includes('/login')) {
             localStorage.removeItem('token');
             window.location.href = '/login';
         }

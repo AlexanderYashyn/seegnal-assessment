@@ -2,20 +2,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
+  height: 48px;
   padding: 0 20px;
-  background: #1d2b4f;
+  background: #1C2275;
   color: #ffffff;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-.left  { display: flex; align-items: center; min-width: 160px; }
-.right { display: flex; align-items: center; gap: 16px; min-width: 160px; justify-content: flex-end; }
-.logo  { display: flex; align-items: center; gap: 8px; }
+.left  { display: flex; align-items: center; min-width: 140px; }
+.right { display: flex; align-items: center; gap: 16px; min-width: 160px; justify-content: flex-start; }
+.logo  { display: flex; align-items: center; gap: 8px; scale: 0.9; margin-left: -5px; }
 
-.logoText { font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px; }
 
 .center { display: flex; align-items: center; gap: 10px; }
 .expertLabel { font-size: 13px; color: #c5d0e8; }
@@ -55,11 +54,11 @@
 
 .menuBtn { background: none; border: none; color: #c5d0e8; font-size: 18px; padding: 0; }
 
-.bellWrapper { position: relative; font-size: 18px; line-height: 1; }
+.bellWrapper { position: relative; font-size: 18px; line-height: 1; scale: 1.1; }
 .badge {
   position: absolute;
-  top: -6px; right: -8px;
-  background: #e53935;
+  bottom: -1px; right: -6px;
+  background: #6b7591;
   color: #fff;
   border-radius: 50%;
   width: 16px; height: 16px;

@@ -131,6 +131,34 @@
 .field input:focus { border-color: #ffffff; }
 .inputError        { border-color: #e53935 !important; }
 
+.emailWrapper {
+  position: relative;
+}
+
+.emailWrapper input {
+  padding-right: 42px;
+}
+
+.errorIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: #e53935;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  pointer-events: none;
+}
+
 .passwordWrapper {
   position: relative;
 }
@@ -165,8 +193,8 @@
 
 .errorText {
   display: block;
-  color: #e57373;
-  font-size: 12px;
+  color: #ff7468;
+  font-size: 14px;
   margin-top: 4px;
 }
 
@@ -181,15 +209,6 @@
 }
 .forgotPassword:hover { text-decoration: underline; }
 
-.serverError {
-  background: rgba(229, 57, 53, 0.12);
-  border: 1px solid #e53935;
-  color: #e57373;
-  padding: 10px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  margin-bottom: 16px;
-}
 
 .submitButton {
   font-family: 'Red Hat Display', helvetica, arial, sans-serif;

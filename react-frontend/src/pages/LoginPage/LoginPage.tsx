@@ -32,7 +32,7 @@ export function LoginPage() {
         try {
             await login(email, password);
         } catch {
-            setServerError('Invalid email or password. Please try again.');
+            setServerError('Invalid username or password.');
         } finally {
             setLoading(false);
         }
@@ -56,15 +56,22 @@ export function LoginPage() {
                             <form onSubmit={handleSubmit} noValidate>
                                 <div className={styles.field}>
                                     <label htmlFor="email">Email</label>
-                                    <input
-                                        id="email"
-                                        type="email"
-                                        value={email}
-                                        onChange={(e) => { setEmail(e.target.value); setEmailError(''); }}
-                                        className={emailError ? styles.inputError : ''}
-                                        autoComplete="email"
-                                    />
-                                    {emailError && <span className={styles.errorText}>{emailError}</span>}
+                                    <div className={styles.emailWrapper}>
+                                        <input
+                                            id="email"
+                                            type="email"
+                                            value={email}
+                                            onChange={(e) => { setEmail(e.target.value); setEmailError(''); setServerError(''); }}
+                                            className={(emailError || serverError) ? styles.inputError : ''}
+                                            autoComplete="email"
+                                        />
+                                        {(emailError || serverError) && (
+                                            <span className={styles.errorIcon} aria-hidden="true">!</span>
+                                        )}
+                                    </div>
+                                    {(emailError || serverError) && (
+                                        <span className={styles.errorText}>{emailError || serverError}</span>
+                                    )}
                                 </div>
 
                                 <div className={styles.field}>
@@ -101,8 +108,6 @@ export function LoginPage() {
                                     {passwordError && <span className={styles.errorText}>{passwordError}</span>}
                                     <a href="#" className={styles.forgotPassword}>Forgot Password?</a>
                                 </div>
-
-                                {serverError && <div className={styles.serverError}>{serverError}</div>}
 
                                 <button type="submit" className={styles.submitButton} disabled={loading}>
                                     {loading ? 'Signing in…' : 'Sign In'}
