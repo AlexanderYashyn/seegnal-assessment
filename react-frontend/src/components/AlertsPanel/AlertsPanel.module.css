@@ -107,6 +107,49 @@
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.14);
 }
 
+/* ── Hover hint tooltip ── */
+.hint {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 12px);
+  background: #ffffff;
+  border: 1px solid #e0e4ef;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
+  padding: 12px 14px;
+  min-width: 320px;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.hintAlert + .hintAlert {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e8eaf0;
+}
+
+.hintLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: 0.5px;
+  margin: 0 0 4px;
+}
+
+.hintDrugs {
+  font-size: 12px;
+  font-weight: 400;
+  color: #1e4863;
+  margin: 0 0 4px;
+}
+
+.hintMessage {
+  font-size: 12px;
+  color: #000000;
+  margin: 0;
+  line-height: 1.4;
+}
+
 /* ── NoAlerts inside the column ── */
 .noAlerts {
   display: flex;

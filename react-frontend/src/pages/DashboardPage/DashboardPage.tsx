@@ -55,7 +55,7 @@ export function DashboardPage() {
 
   return (
     <div className={styles.page}>
-      <Header />
+      <Header alertCount={alerts.length} />
       <div className={styles.body}>
         <Sidebar />
         <main className={styles.main}>

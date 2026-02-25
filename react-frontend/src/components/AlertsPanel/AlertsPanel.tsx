@@ -16,6 +16,7 @@ interface Props {
 
 export function AlertsPanel({ alerts, medications }: Props) {
   const [bypassed, setBypassed] = useState(false);
+  const [hintVisible, setHintVisible] = useState(false);
 
   if (alerts.length === 0) {
     return (
@@ -30,7 +31,11 @@ export function AlertsPanel({ alerts, medications }: Props) {
 
   return (
     <div className={styles.column}>
-      <div className={styles.header}>
+      <div
+        className={styles.header}
+        onMouseEnter={() => setHintVisible(true)}
+        onMouseLeave={() => setHintVisible(false)}
+      >
         <div className={`${styles.pill} ${isMajor ? styles.pillMajor : styles.pillModerate}`} />
         <span className={styles.severityLabel}>
           {isMajor ? 'Contra-\nindication' : 'Moderate\ninteraction'}
@@ -41,6 +46,19 @@ export function AlertsPanel({ alerts, medications }: Props) {
           <input type="checkbox" checked={bypassed} onChange={() => setBypassed((v) => !v)} />
           <span className={styles.slider} />
         </label>
+
+        {hintVisible && (
+          <div className={styles.hint}>
+            {alerts.map((alert, i) => (
+              <div key={i} className={styles.hintAlert}>
+                <p className={styles.hintLabel}>Interacting drugs/patient factors</p>
+                <p className={styles.hintDrugs}>{alert.drug1}, {alert.drug2}</p>
+                <br />
+                <p className={styles.hintMessage}>{alert.message}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {medications.sort((a,b) => alertedNames.has(a.name) && !alertedNames.has(b.name) ? -1 : alertedNames.has(b.name) && !alertedNames.has(a.name) ? 1 : 0).map((drug, idx) => {
