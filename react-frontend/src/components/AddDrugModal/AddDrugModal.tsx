@@ -27,7 +27,7 @@ export function AddDrugModal({ allDrugs, currentMedications, onConfirm, onClose 
     ...pending.map((p) => p.id),
   ]);
 
-  const filtered = query.trim()
+  const filtered = query.trim().length >= 3
     ? allDrugs.filter(
         (drug) =>
           !excludedIds.has(drug.id) &&

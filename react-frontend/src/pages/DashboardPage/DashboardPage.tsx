@@ -30,8 +30,8 @@ export function DashboardPage() {
     setAlerts(result);
   }, []);
 
-  const handleAddDrug = (drug: Drug) => {
-    const updated = [...medications, drug];
+  const handleAddDrug = (drugs: Drug[]) => {
+    const updated = [...medications, ...drugs];
     setMedications(updated);
     setPage(1);
     runAnalysis(updated);
@@ -76,6 +76,7 @@ export function DashboardPage() {
             <MedicationList
               medications={pagedMedications}
               allDrugs={allDrugs}
+              hasAlerts={alerts.length > 0}
               onAdd={handleAddDrug}
               onRemove={handleRemoveDrug}
             />

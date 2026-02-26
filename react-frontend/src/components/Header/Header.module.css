@@ -17,7 +17,43 @@
 
 
 .center { display: flex; align-items: center; gap: 10px; }
-.expertLabel { font-size: 13px; font-weight: 700; color: #ffffff; margin-left: 60px; }
+.expertToggleWrapper { display: flex; align-items: center; gap: 8px; margin-left: 60px; }
+.expertLabel { font-size: 13px; font-weight: 700; color: #ffffff; }
+
+.expertToggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 45px;
+  height: 20px;
+  padding: 0 4px;
+  border: 1.5px solid #ffffff;
+  border-radius: 11px;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.expertKnob {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #ffffff;
+  flex-shrink: 0;
+  transition: order 0.15s;
+}
+
+/* When off, push knob to the right by reversing flex order */
+.expertKnobRight { order: 1; }
+
+.expertToggleText {
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1;
+  flex: 1;
+  text-align: center;
+}
 
 .feedback { display: flex; align-items: center; gap: 6px; color: #ffffff; font-size: 13px; margin-right: 30px ;  }
 .feedback:hover { opacity: 0.8; }

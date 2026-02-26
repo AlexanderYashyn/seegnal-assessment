@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useAuth } from '../../contexts/useAuth';
 import styles from './Header.module.css';
 
@@ -7,6 +8,7 @@ interface Props {
 
 export function Header({ alertCount = 0 }: Props) {
   const { name, logout } = useAuth();
+  const [expertOn, setExpertOn] = useState(true);
 
   return (
     <header className={styles.header}>
@@ -26,7 +28,13 @@ export function Header({ alertCount = 0 }: Props) {
             <path fill="#f4eee8" d="M606.85,458.39A59.19,59.19,0,1,0,644.76,563v7.25h0a37.91,37.91,0,0,1-74.71,9.12H548.36a59.19,59.19,0,0,0,117.58-5.73V514.2A59.19,59.19,0,0,0,606.85,458.39Zm0,97.1a37.91,37.91,0,1,1,37.91-37.91A37.91,37.91,0,0,1,606.85,555.49Z"/>
           </svg>
         </div>
-        <span className={styles.expertLabel}>Expert view</span>
+        <div className={styles.expertToggleWrapper}>
+          <span className={styles.expertLabel}>Expert view</span>
+          <button className={styles.expertToggle} onClick={() => setExpertOn((v) => !v)}>
+            <span className={`${styles.expertKnob} ${expertOn ? '' : styles.expertKnobRight}`} />
+            <span className={styles.expertToggleText}>{expertOn ? 'On' : 'Off'}</span>
+          </button>
+        </div>
       </div>
 
       <div className={styles.right}>

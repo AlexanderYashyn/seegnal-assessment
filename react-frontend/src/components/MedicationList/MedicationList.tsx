@@ -6,7 +6,8 @@ import styles from './MedicationList.module.css';
 interface Props {
   medications: Drug[];
   allDrugs: Drug[];
-  onAdd: (drug: Drug) => void;
+  hasAlerts: boolean;
+  onAdd: (drugs: Drug[]) => void;
   onRemove: (drugId: number) => void;
 }
 
@@ -22,12 +23,12 @@ function TrashIcon() {
   );
 }
 
-export function MedicationList({ medications, allDrugs, onAdd, onRemove }: Props) {
+export function MedicationList({ medications, allDrugs, hasAlerts, onAdd, onRemove }: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   const handleConfirm = (drugs: Drug[]) => {
-    drugs.forEach((drug) => onAdd(drug));
+    onAdd(drugs);
     setIsModalOpen(false);
   };
 
@@ -54,9 +55,8 @@ export function MedicationList({ medications, allDrugs, onAdd, onRemove }: Props
             onMouseLeave={() => setHoveredId(null)}
           >
             <span className={styles.number}>{idx + 1}.</span>
-            <span className={styles.drugName}>{drug.name}</span>
-            <div className={styles.lineArea}>
-              <div className={styles.lineLeft} />
+            <div className={`${styles.nameLineWrapper}${hasAlerts ? '' : ` ${styles.nameLineWrapperShort}`}`}>
+              <span className={styles.drugName}>{drug.name}</span>
               {hoveredId === drug.id && (
                 <button
                   className={styles.removeBtn}
@@ -66,7 +66,6 @@ export function MedicationList({ medications, allDrugs, onAdd, onRemove }: Props
                   <TrashIcon />
                 </button>
               )}
-              <div className={styles.lineRight} />
             </div>
           </li>
         ))}
