@@ -8,6 +8,10 @@ echo "=== Seegnal Assessment – Quick Start ==="
 echo ""
 
 echo "[1/4] Installing backend dependencies..."
+if [ ! -f "$ROOT/nodejs-backend/.env" ]; then
+  cp "$ROOT/nodejs-backend/.env.example" "$ROOT/nodejs-backend/.env"
+  echo "  -> Created .env from .env.example"
+fi
 cd "$ROOT/nodejs-backend" && npm install --silent
 
 echo "[2/4] Seeding database..."
