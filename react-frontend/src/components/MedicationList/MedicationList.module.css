@@ -56,9 +56,6 @@
   flex-shrink: 0;
 }
 
-/* When there are no alerts the line is shortened to 1/3 of the wrapper width */
-.nameLineWrapperShort::before { right: 60% !important; }
-
 /* Wrapper spans from drug name start to row end; ::before draws the full-width line */
 .nameLineWrapper {
   flex: 1;
@@ -94,5 +91,8 @@
   z-index: 1;
   animation: fadeIn 0.1s ease;
 }
+
+/* When no alerts, line is capped at 300px */
+.nameLineWrapperShort::before { right: auto !important; width: 400px; }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
