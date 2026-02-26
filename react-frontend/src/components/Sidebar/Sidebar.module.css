@@ -37,7 +37,7 @@
 
 .badge {
   position: absolute;
-  top: 41px; right: 30px;
+  top: 41px; right: -10px;
   background: #3d4464;
   color: #fff;
   border-radius: 50%;

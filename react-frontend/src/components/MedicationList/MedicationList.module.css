@@ -40,7 +40,7 @@
 .number {
   font-size: 13px;
   font-weight: 600;
-  color: #2d3a5a;
+  color: #000000;
   flex-shrink: 0;
   margin-right: 6px;
 }
@@ -48,7 +48,7 @@
 .drugName {
   font-size: 13px;
   font-weight: 600;
-  color: #2d3a5a;
+  color: #000000;
   position: relative;
   z-index: 1;
   background: #ffffff;

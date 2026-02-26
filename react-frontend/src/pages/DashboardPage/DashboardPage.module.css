@@ -80,15 +80,13 @@
 
 .contentRow { display: flex; align-items: flex-start; margin-top: 50px; }
 
-/* Centered overlay column – positioned relative to .main */
 .alertsColumn {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 470px;
   width: 160px;
-  pointer-events: none; /* let clicks pass through where there's no interactive element */
+  pointer-events: none;
 }
 .alertsColumn > * { pointer-events: auto; }
 
