@@ -152,4 +152,4 @@ thumb
 sketch
 
 ### data ###
-*.db
+**/data/*.db*
