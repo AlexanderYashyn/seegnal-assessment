@@ -48,7 +48,14 @@ export function DashboardPage() {
   const alertedCount    = alerts.length;
   const nonAlertedCount = medications.filter((m) => !alertedDrugNames.has(m.name)).length;
   const totalPages = Math.max(1, Math.ceil(medications.length / PAGE_SIZE));
-  const pagedMedications = medications.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const sortedMedications = [...medications].sort((a, b) => {
+    const aAlerted = alertedDrugNames.has(a.name);
+    const bAlerted = alertedDrugNames.has(b.name);
+    if (aAlerted && !bAlerted) return -1;
+    if (!aAlerted && bAlerted) return 1;
+    return 0;
+  });
+  const pagedMedications = sortedMedications.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   if (loading) {
     return (
@@ -86,7 +93,7 @@ export function DashboardPage() {
 
           {/* AlertsPanel is positioned absolute relative to .main so it can span full height and be centered */}
           <div className={styles.alertsColumn}>
-            <AlertsPanel alerts={alerts} medications={medications} />
+            <AlertsPanel alerts={alerts} medications={pagedMedications} />
           </div>
         </main>
       </div>

@@ -61,7 +61,7 @@ export function AlertsPanel({ alerts, medications }: Props) {
         )}
       </div>
 
-      {medications.sort((a,b) => alertedNames.has(a.name) && !alertedNames.has(b.name) ? -1 : alertedNames.has(b.name) && !alertedNames.has(a.name) ? 1 : 0).map((drug, idx) => {
+      {medications.map((drug, idx) => {
         if (!alertedNames.has(drug.name)) return null;
         const chipTop = CHIP_TOP_BASE + idx * ITEM_HEIGHT + Math.round((ITEM_HEIGHT - 30) / 2);
         return <div key={drug.id} className={styles.chip} style={{ top: chipTop }} />;
