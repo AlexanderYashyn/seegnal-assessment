@@ -81,7 +81,7 @@
 /* Trash bin icon button – absolutely positioned at 1/3 from right within nameLineWrapper */
 .removeBtn {
   position: absolute;
-  right: 56%;
+  left: 340px;
   top: 50%;
   transform: translateY(-50%);
   background: #ffffff;

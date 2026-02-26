@@ -62,7 +62,7 @@ export function DashboardPage() {
     <div className={styles.page}>
       <Header alertCount={alerts.length} />
       <div className={styles.body}>
-        <Sidebar />
+        <Sidebar alertCount={alerts.length} />
         <main className={styles.main}>
           <h1 className={styles.pageTitle}>Drug-related problems</h1>
 

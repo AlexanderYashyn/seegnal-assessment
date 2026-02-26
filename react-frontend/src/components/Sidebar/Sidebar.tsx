@@ -56,7 +56,7 @@ function SidebarItem({ icon, label, sublabel, badge, active }: SidebarItemProps)
     <button className={`${styles.item} ${active ? styles.active : ''}`}>
       <div className={styles.iconWrapper}>
         {icon}
-        {badge !== undefined && <span className={styles.badge}>{badge}</span>}
+        {badge !== undefined && <span className={`${styles.badge} ${badge > 0 ? styles.badgeAlert : ''}`}>{badge}</span>}
       </div>
       <div className={styles.labelBox}>
         <span className={styles.label}>{label}</span>
@@ -66,13 +66,17 @@ function SidebarItem({ icon, label, sublabel, badge, active }: SidebarItemProps)
   );
 }
 
-export function Sidebar() {
+interface Props {
+  alertCount?: number;
+}
+
+export function Sidebar({ alertCount = 0 }: Props) {
   return (
     <nav className={styles.sidebar}>
       <SidebarItem icon={<HomeIcon />}    label="Home"            active />
       <SidebarItem icon={<PatientIcon />} label="Patient factors" sublabel="Influencing" badge={0} />
-      <SidebarItem icon={<DietIcon />}    label="Diet to consider" badge={0} />
-      <SidebarItem icon={<MoreIcon /> } label="More" />
+      <SidebarItem icon={<DietIcon />}    label="Diet to consider" badge={alertCount} />
+      <SidebarItem icon={<MoreIcon />}    label="More" />
     </nav>
   );
 }
