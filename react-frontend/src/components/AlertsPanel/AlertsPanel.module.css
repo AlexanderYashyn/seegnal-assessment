@@ -11,6 +11,7 @@
   margin-top: 40px;
   margin-bottom: 80px;
   width: 130px;
+  margin-left: 80px;
 }
 
 .noAlertsColumn {
@@ -20,6 +21,8 @@
   border-radius: 14px;
   overflow: visible;
   display: flex;
+  margin-left: 50px;
+  margin-bottom: 200px;
 }
 
 /* ── Header – vertically stacked, centered ── */

@@ -67,7 +67,7 @@ export function DashboardPage() {
           <h1 className={styles.pageTitle}>Drug-related problems</h1>
 
           <div className={styles.filterRow}>
-            <FilterRadio label="Alerted"     count={alertedCount}    bgColor="#e53935" knobRight={false} />
+            <FilterRadio label="Alerted"     count={alertedCount}    bgColor="#e53935" knobRight={false} countColor="#e53935" />
             <FilterRadio label="Non-alerted" count={nonAlertedCount} bgColor="#9ba3b8" knobRight={true} />
             <FilterRadio label="Bypassed"    count={0}               bgColor="#9ba3b8" knobRight={true} />
           </div>
@@ -93,7 +93,7 @@ export function DashboardPage() {
   );
 }
 
-function FilterRadio({ label, count, bgColor, knobRight }: { label: string; count: number; bgColor: string; knobRight: boolean }) {
+function FilterRadio({ label, count, bgColor, knobRight, countColor }: { label: string; count: number; bgColor: string; knobRight: boolean; countColor?: string }) {
   return (
     <div className={styles.filterRadio}>
       <label className={styles.filterSwitch}>
@@ -101,7 +101,7 @@ function FilterRadio({ label, count, bgColor, knobRight }: { label: string; coun
         <span className={styles.filterSlider} style={{ background: bgColor }} />
       </label>
       <span className={styles.filterRadioLabel}>
-        {label} <span className={styles.filterCount}>({count})</span>
+        {label} <span className={styles.filterCount} style={countColor ? { color: countColor } : undefined}>({count})</span>
       </span>
     </div>
   );
