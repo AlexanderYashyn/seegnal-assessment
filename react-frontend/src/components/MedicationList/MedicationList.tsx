@@ -56,7 +56,7 @@ export function MedicationList({ medications, allDrugs, onAdd, onRemove }: Props
             <span className={styles.number}>{idx + 1}.</span>
             <span className={styles.drugName}>{drug.name}</span>
             <div className={styles.lineArea}>
-              <div className={styles.line} />
+              <div className={styles.lineLeft} />
               {hoveredId === drug.id && (
                 <button
                   className={styles.removeBtn}
@@ -66,6 +66,7 @@ export function MedicationList({ medications, allDrugs, onAdd, onRemove }: Props
                   <TrashIcon />
                 </button>
               )}
+              <div className={styles.lineRight} />
             </div>
           </li>
         ))}

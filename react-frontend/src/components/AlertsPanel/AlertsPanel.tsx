@@ -6,7 +6,7 @@ import styles from './AlertsPanel.module.css';
 
 // Distance from the top of .main's box to the first medication list item.
 // Accounts for: main padding-top (64) + pageTitle+margin (~40) + filterRow+margin (~47) + medListHeader (~40)
-const CHIP_TOP_BASE = 177;
+const CHIP_TOP_BASE = 197;
 const ITEM_HEIGHT = 31; // .item min-height in MedicationList
 
 interface Props {

@@ -84,7 +84,7 @@ export function DashboardPage() {
             />
           </div>
 
-          <Pagination page={page} totalPages={totalPages} onChange={setPage} />
+          {medications.length > 0 && <Pagination page={page} totalPages={totalPages} onChange={setPage} />}
 
           {/* AlertsPanel is positioned absolute relative to .main so it can span full height and be centered */}
           <div className={styles.alertsColumn}>
