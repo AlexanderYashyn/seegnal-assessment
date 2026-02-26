@@ -3,11 +3,14 @@ import { Header } from '../../components/Header/Header';
 import { Sidebar } from '../../components/Sidebar/Sidebar';
 import { MedicationList } from '../../components/MedicationList/MedicationList';
 import { AlertsPanel } from '../../components/AlertsPanel/AlertsPanel';
+import { Pagination } from '../../components/Pagination/Pagination';
 import { getDrugs } from '../../api/drugs';
 import type { Drug } from '../../api/drugs';
 import { analyzeInteractions } from '../../api/analyze';
 import type { Alert } from '../../api/analyze';
 import styles from './DashboardPage.module.css';
+
+const PAGE_SIZE = 10;
 
 type FilterMode = 'alerted' | 'non-alerted' | 'bypassed';
 
@@ -16,6 +19,7 @@ export function DashboardPage() {
   const [medications, setMedications] = useState<Drug[]>([]);
   const [alerts, setAlerts] = useState<Alert[]>([]);
   const [filter, setFilter] = useState<FilterMode>('alerted');
+  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -32,18 +36,22 @@ export function DashboardPage() {
   const handleAddDrug = (drug: Drug) => {
     const updated = [...medications, drug];
     setMedications(updated);
+    setPage(1);
     runAnalysis(updated);
   };
 
   const handleRemoveDrug = (drugId: number) => {
     const updated = medications.filter((m) => m.id !== drugId);
     setMedications(updated);
+    setPage(1);
     runAnalysis(updated);
   };
 
   const alertedDrugNames = new Set(alerts.flatMap((a) => [a.drug1, a.drug2]));
   const alertedCount    = alerts.length;
   const nonAlertedCount = medications.filter((m) => !alertedDrugNames.has(m.name)).length;
+  const totalPages = Math.max(1, Math.ceil(medications.length / PAGE_SIZE));
+  const pagedMedications = medications.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   if (loading) {
     return (
@@ -69,12 +77,14 @@ export function DashboardPage() {
 
           <div className={styles.contentRow}>
             <MedicationList
-              medications={medications}
+              medications={pagedMedications}
               allDrugs={allDrugs}
               onAdd={handleAddDrug}
               onRemove={handleRemoveDrug}
             />
           </div>
+
+          <Pagination page={page} totalPages={totalPages} onChange={setPage} />
 
           {/* AlertsPanel is positioned absolute relative to .main so it can span full height and be centered */}
           <div className={styles.alertsColumn}>
