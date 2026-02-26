@@ -61,7 +61,7 @@ export function createAnalyzeRouter(drugService: DrugService): Router {
             return;
         }
 
-        const alerts = drugService.analyzeInteractions(drugIds as number[]);
+        const alerts = drugService.analyzeInteractions(drugIds);
         res.json({ alerts });
     });
 

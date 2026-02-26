@@ -12,9 +12,9 @@ db.exec(`DELETE FROM interactions; DELETE FROM drugs; DELETE FROM users;`);
 const passwordHash = bcrypt.hashSync('Abcd1234!', 10);
 db.prepare('INSERT INTO users (email, password_hash, name) VALUES (?, ?, ?)')
 .run(
-  'yura.zharkovsky@seegnal.com',
+  'admin.test@seegnal.com',
   passwordHash,
-  'Yura Zharkovsky',
+  'Admin Test',
 );
 
 console.log('[Seed] User inserted');

@@ -1,17 +1,8 @@
 .body {
-    background: no-repeat center center fixed;
-    background-image: url(https://keycloak-clinical.seegnal.com/resources/2g5fz/login/keycloak.v2/img/keycloak-bg.png);
+    background: url(https://keycloak-clinical.seegnal.com/resources/2g5fz/login/keycloak.v2/img/keycloak-bg.png) no-repeat center center fixed;
     background-size: cover;
-    height: 100%;
-    background-attachment: fixed;
-    background-clip: border-box;
     background-color: #26292d;
-    background-image: url(https://keycloak-clinical.seegnal.com/resources/2g5fz/login/keycloak.v2/img/keycloak-bg.png);
-    background-origin: padding-box;
-    background-position-x: 50%;
-    background-position-y: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 100%;
 }
 
 .container {
@@ -83,16 +74,6 @@
 }
 
 .title {
-    box-sizing:border-box;
-    display:block;
-    margin-bottom:0px;
-    margin-left:0px;
-    margin-right:0px;
-    margin-top:0px;
-    padding-bottom:0px;
-    padding-left:0px;
-    padding-right:0px;
-    padding-top:0px;
     font-family: 'Red Hat Display', helvetica, arial, sans-serif;
     font-size: 28px;
     font-weight: 600;
