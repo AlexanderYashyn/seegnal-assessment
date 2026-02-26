@@ -12,13 +12,10 @@ import styles from './DashboardPage.module.css';
 
 const PAGE_SIZE = 10;
 
-type FilterMode = 'alerted' | 'non-alerted' | 'bypassed';
-
 export function DashboardPage() {
   const [allDrugs, setAllDrugs] = useState<Drug[]>([]);
   const [medications, setMedications] = useState<Drug[]>([]);
   const [alerts, setAlerts] = useState<Alert[]>([]);
-  const [filter, setFilter] = useState<FilterMode>('alerted');
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
@@ -70,9 +67,9 @@ export function DashboardPage() {
           <h1 className={styles.pageTitle}>Drug-related problems</h1>
 
           <div className={styles.filterRow}>
-            <FilterToggle label="Alerted"     count={alertedCount}    color="#e53935" active={filter === 'alerted'}     onClick={() => setFilter('alerted')} />
-            <FilterToggle label="Non-alerted" count={nonAlertedCount} color="#4caf50" active={filter === 'non-alerted'} onClick={() => setFilter('non-alerted')} />
-            <FilterToggle label="Bypassed"    count={0}               color="#9ba3b8" active={filter === 'bypassed'}    onClick={() => setFilter('bypassed')} />
+            <FilterRadio label="Alerted"     count={alertedCount}    bgColor="#e53935" knobRight={false} />
+            <FilterRadio label="Non-alerted" count={nonAlertedCount} bgColor="#9ba3b8" knobRight={true} />
+            <FilterRadio label="Bypassed"    count={0}               bgColor="#9ba3b8" knobRight={true} />
           </div>
 
           <div className={styles.contentRow}>
@@ -96,19 +93,16 @@ export function DashboardPage() {
   );
 }
 
-interface FilterToggleProps {
-  label: string; count: number; active: boolean; color: string; onClick: () => void;
-}
-
-function FilterToggle({ label, count, active, color, onClick }: FilterToggleProps) {
+function FilterRadio({ label, count, bgColor, knobRight }: { label: string; count: number; bgColor: string; knobRight: boolean }) {
   return (
-    <button
-      className={`${styles.filterBtn} ${active ? styles.filterBtnActive : ''}`}
-      onClick={onClick}
-    >
-      <span className={styles.filterDot} style={{ background: color }} />
-      <span>{label}</span>
-      <span className={styles.filterCount}>({count})</span>
-    </button>
+    <div className={styles.filterRadio}>
+      <label className={styles.filterSwitch}>
+        <input type="checkbox" checked={knobRight} disabled onChange={() => {}} />
+        <span className={styles.filterSlider} style={{ background: bgColor }} />
+      </label>
+      <span className={styles.filterRadioLabel}>
+        {label} <span className={styles.filterCount}>({count})</span>
+      </span>
+    </div>
   );
 }
